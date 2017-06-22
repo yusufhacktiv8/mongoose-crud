@@ -39,3 +39,18 @@ exports.update = (req, res) => {
     });
   });
 };
+
+exports.delete = (req, res) => {
+  const isbn = req.params.isbn;
+  Book.find({ isbn }, (err, books) => {
+    const book = books[0];
+    book.remove((saveErr) => {
+      if (!saveErr) {
+        res.send({ result: 'DELETE_OK' });
+      } else {
+        console.log(saveErr);
+        res.status(500).send('Error');
+      }
+    });
+  });
+};

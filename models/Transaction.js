@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const transactionSchema = mongoose.Schema({
-  member: { type: mongoose.Schema.Types.ObjectId, ref: 'Story' },
+  member: { type: mongoose.Schema.Types.ObjectId, ref: 'Customer' },
   days: Number,
   outDate: Date,
   dueDate: Date,

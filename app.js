@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 
 const url = 'mongodb://localhost:27017/library2';
 
-const index = require('./routes/index');
+const booksRoute = require('./routes/books');
+const customersRoute = require('./routes/customers');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/api/books', index);
+app.use('/api/books', booksRoute);
+app.use('/api/customers', customersRoute);
 
 mongoose.connect(url);
 

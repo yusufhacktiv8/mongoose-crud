@@ -6,6 +6,7 @@ const url = 'mongodb://localhost:27017/library2';
 
 const booksRoute = require('./routes/books');
 const customersRoute = require('./routes/customers');
+const transactionsRoute = require('./routes/transactions');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/books', booksRoute);
 app.use('/api/customers', customersRoute);
+app.use('/api/transactions', transactionsRoute);
 
 mongoose.connect(url);
 
